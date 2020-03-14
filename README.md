@@ -9,3 +9,5 @@ Usage:
 
 Just type "sudo fanspeed" for interactive mode.
 Use "sudo fanspeed [num 1-255]" to set the fan speed directly. 
+
+For more sophisticated control use this repo: https://github.com/grmat/amdgpu-fancontrol
