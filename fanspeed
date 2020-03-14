@@ -25,6 +25,20 @@ set_speed() {
 sudo echo $speed > $pwmfile
 echo speed set to $speed
 }
+if [ "$1" = "-g" ]
+then
+echo entered graphical mode using zenity
+g_speed=$(zenity --scale --title "AMDGPU fan speed" --text "Choose fan speed 1-255" --min-value=1 --max-value=255 --step=5 --value=45)
+if [ -z "$g_speed" ]
+then
+echo "nothing set, exitting"
+exit
+else
+speed=$g_speed
+set_speed
+fi
+exit
+fi
 read_speed
 echo "current speed $curr / 255"
 echo "type desired speed: "
