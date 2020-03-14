@@ -3,7 +3,7 @@ Tiny bash script to regulate AMDGPU Linux driver fanspeed. Nothing special but p
 
 Insall: 
 
-cd ~ && git clone https://github.com/deadport/amdgpu_fanspeed && cd amdgpu_fanspeed && sudo mv fanspeed /bin/fanspeed && sudo chmod /bin/fanspeed
+cd ~ && git clone https://github.com/deadport/amdgpu_fanspeed && cd amdgpu_fanspeed && sudo mv fanspeed /bin/fanspeed && sudo chmod +x /bin/fanspeed
 
 Usage: 
 
