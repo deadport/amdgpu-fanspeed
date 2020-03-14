@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+#
+determin_hwmon() {
+if [ -e /sys/class/hwmon ]
+then
+name=amdgpu
+eval=$(cat /sys/class/hwmon/hwmon3/name)
+	if [ "$eval" = "$name" ]
+	then
+	enablefile=/sys/class/hwmon/hwmon3/pwm1_enable
+	pwmfile=/sys/class/hwmon/hwmon3/pwm1
+	else
+	pwmfile=/sys/class/hwmon/hwmon2/pwm1
+	enablefile=/sys/class/hwmon/hwmon2/pwm1_enable
+	fi
+fi
+}
+determin_hwmon
+sudo echo 1 > $enablefile
+read_speed() {
+curr=$(cat $pwmfile)
+}
+set_speed() {
+sudo echo $speed > $pwmfile
+echo speed set to $speed
+}
+read_speed
+echo "current speed $curr / 255"
+echo "type desired speed: "
+if [ -z "$1" ]
+then
+read speed && set_speed
+else
+speed=$1 && set_speed
+fi
