@@ -5,7 +5,7 @@ num=1
 marker=0
 while [ $marker -eq 0 ]
 do
-	eval=$(cat "/sys/class/hwmon/hwmon$num/name")
+	eval=$(cat "/sys/class/hwmon/hwmon$num/name" 2> /dev/null)
 	if [ "$eval" = "$name" ]
 		then
 		enablefile=/sys/class/hwmon/hwmon$num/pwm1_enable
@@ -13,6 +13,10 @@ do
 		marker=1
 	else
 		let num++
+		if [ $num -eq 50 ]
+		then
+		echo "hwmon entry for amdgpu not fonund, are you sure the amdgpu driver is installed correctly?" && exit
+		fi
 	fi
 done
 }
