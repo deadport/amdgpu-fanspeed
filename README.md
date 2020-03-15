@@ -20,4 +20,4 @@ Use "sudo fanspeed [num 1-255]" to set the fan speed directly.
 -s  = Output current speed
 -S  = Output just the current speed (for further processing)
 
-For more sophisticated control use this repo: https://github.com/grmat/amdgpu-fancontrol
+For more sophisticated control try this repo: https://github.com/grmat/amdgpu-fancontrol
