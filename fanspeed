@@ -1,20 +1,20 @@
 #!/bin/bash
-#
-#
 determin_hwmon() {
-if [ -e /sys/class/hwmon ]
-then
 name=amdgpu
-eval=$(cat /sys/class/hwmon/hwmon3/name)
+num=1
+marker=0
+while [ $marker -eq 0 ]
+do
+	eval=$(cat "/sys/class/hwmon/hwmon$num/name")
 	if [ "$eval" = "$name" ]
-	then
-	enablefile=/sys/class/hwmon/hwmon3/pwm1_enable
-	pwmfile=/sys/class/hwmon/hwmon3/pwm1
+		then
+		enablefile=/sys/class/hwmon/hwmon$num/pwm1_enable
+		pwmfile=/sys/class/hwmon/hwmon$num/pwm1
+		marker=1
 	else
-	pwmfile=/sys/class/hwmon/hwmon2/pwm1
-	enablefile=/sys/class/hwmon/hwmon2/pwm1_enable
+		let num++
 	fi
-fi
+done
 }
 determin_hwmon
 sudo echo 1 > $enablefile
@@ -25,6 +25,18 @@ set_speed() {
 sudo echo $speed > $pwmfile
 echo speed set to $speed
 }
+if [ "$1" = "-s" ]
+then
+read_speed
+echo "Current Speed: $curr / 255"
+exit
+fi
+if [ "$1" = "-S" ]
+then
+read_speed
+echo "$curr"
+exit
+fi
 if [ "$1" = "-g" ]
 then
 echo entered graphical mode using zenity
