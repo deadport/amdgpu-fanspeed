@@ -9,7 +9,7 @@ Dependencies:
 
 Insall: 
 
-cd ~ && git clone https://github.com/deadport/amdgpu_fanspeed && cd amdgpu_fanspeed && sudo mv fanspeed /bin/fanspeed && sudo chmod +x /bin/fanspeed && rm -r ~/amdgpu_fanspeed
+cd ~ && git clone https://github.com/deadport/amdgpu_fanspeed && cd amdgpu_fanspeed && sudo mv fanspeed /bin/fanspeed && sudo chmod +x /bin/fanspeed && sudo rm -r ~/amdgpu_fanspeed
 
 Usage: 
 
