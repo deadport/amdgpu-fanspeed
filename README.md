@@ -1,4 +1,4 @@
-# amdgpu_fanspeed
+# amdgpu-fanspeed
 Tiny bash script to regulate AMDGPU Linux driver fanspeed. Nothing special but practical.
 
 Dependencies: 
