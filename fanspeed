@@ -1,5 +1,6 @@
 #!/bin/bash
 const=1
+g_speed=45
 determin_hwmon() {
 name=amdgpu
 num=1
@@ -60,7 +61,6 @@ if [ "$1" = "-G" ]
 then
 while [ $const -eq 1 ]
 do
-echo entered continous graphical mode using zenity
 g_speed=$(zenity --scale --title "AMDGPU fan speed" --text "Choose fan speed 1-255" --min-value=1 --max-value=255 --step=5 --value=$g_speed)
 if [ -z "$g_speed" ]
 then
