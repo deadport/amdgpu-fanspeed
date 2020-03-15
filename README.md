@@ -17,6 +17,7 @@ Just type "sudo fanspeed" for interactive mode.
 Use "sudo fanspeed [num 1-255]" to set the fan speed directly. 
 
 -g  = graphical mode using zenity
+-G  = continous graphical mode using zenity
 -s  = Output current speed
 -S  = Output just the current speed (for further processing)
 
