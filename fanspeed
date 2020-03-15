@@ -15,7 +15,7 @@ do
 		let num++
 		if [ $num -eq 50 ]
 		then
-		echo "hwmon entry for amdgpu not fonund, are you sure the amdgpu driver is installed correctly?" && exit
+		echo "hwmon entry for amdgpu not found, are you sure the amdgpu driver is installed correctly?" && exit
 		fi
 	fi
 done
